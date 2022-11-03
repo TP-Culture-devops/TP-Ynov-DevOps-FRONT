@@ -1,5 +1,6 @@
 import './App.css';
 import AddDocumentButton from './AddDocumentButton';
+import ShowDocumentDetail from './ShowDocumentDetail';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -27,7 +28,13 @@ function App() {
             <Item>{Media}</Item>
           </CardContent> 
           <CardActions>
-            <Button size="small" variant="outlined">Consulter</Button>
+            <ShowDocumentDetail
+              name="Une image de bébé" 
+              creationDate="03/11/2022"
+              lastModificationDate="03/11/2022"
+              weight="52"
+              url="https://picsum.photos/200/300"
+            />
           </CardActions>
         </Card>
       );
