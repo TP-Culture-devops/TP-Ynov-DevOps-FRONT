@@ -26,12 +26,6 @@ function App() {
           <CardContent sx={{ flex: '1 0 auto', display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <Item>{Media}</Item>
           </CardContent> 
-          <CardMedia
-            component="img"
-            height="100"
-            width="150"
-            image="source"
-          />
           <CardActions>
             <Button size="small" variant="outlined">Consulter</Button>
           </CardActions>
