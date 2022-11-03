@@ -38,11 +38,11 @@ function App() {
           </CardContent> 
           <CardActions>
             <ShowDocumentDetail
+              id={Media.id}
               name={Media.description} 
               creationDate={Media.creationDate}
               lastModificationDate={Media.creationDate}
               weight="52"
-              url="https://picsum.photos/200/300"
             />
           </CardActions>
         </Card>
