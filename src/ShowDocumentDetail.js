@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import HttpRequestGetFiles from './HttpRequest';
 
 
 const style = {
@@ -26,6 +27,12 @@ export default function ShowDocumentDetail(props) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const [sourceImage, setSourceImage] = React.useState("");
+    /*HttpRequestGetContentOf(props.id).then( (data)=>{
+        console.log("data: ", data)
+        setSourceImage(data)
+    })*/
 
     return (
     <div>
@@ -70,7 +77,7 @@ export default function ShowDocumentDetail(props) {
                 <CardMedia
                     component="img"
                     sx={{ width: 151 }}
-                    src={props.url}
+                    source={sourceImage}
                 />
                 </Card>
         </Modal>
