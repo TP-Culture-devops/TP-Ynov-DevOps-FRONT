@@ -7,8 +7,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
+import Drawer from '@mui/material/Drawer';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -32,14 +32,20 @@ function App() {
             image="source"
           />
           <CardActions>
-            <Button size="small" variant="contained">Consulter</Button>
+            <Button size="small" variant="outlined">Consulter</Button>
           </CardActions>
         </Card>
       );
 
   return (
     <div className="App">
-      <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%', display: 'flex' }}>
+        <Drawer sx={{width: 280, flexShrink: 0}} variant="permanent" anchor="left">
+          <Stack spacing={2} padding={2}>
+            <Button variant="outlined">Ajouter</Button>
+            <Button variant="outlined">Supprimer</Button>
+          </Stack>
+        </Drawer>
         <Stack spacing={2}>
           {MediaList}
         </Stack>
