@@ -14,7 +14,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 600,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -22,11 +22,10 @@ const style = {
   display: 'flex',
 };
 
-export default function ShowDocumentDetail() {
+export default function ShowDocumentDetail(props) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
 
     return (
     <div>
@@ -38,24 +37,40 @@ export default function ShowDocumentDetail() {
              <Card sx={style}>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                     <CardContent sx={{ flex: '1 0 auto' }}>
-                    <Typography component="div" variant="h5">
-                        Live From Space
+                    <Typography component="div" variant="h6">
+                        <Typography 
+                            sx={{textDecoration: 'underline'}} 
+                            display="inline" 
+                            variant="h6">
+                            Nom:</Typography>  {props.name}
                     </Typography>
-                    <Typography variant="subtitle1" color="text.secondary" component="div">
-                        Mac Miller
+                    <Typography component="div" variant="h6">
+                        <Typography 
+                                sx={{textDecoration: 'underline'}} 
+                                display="inline" 
+                                variant="h6">
+                                Date de création:</Typography>  {props.creationDate}
+                    </Typography>
+                    <Typography component="div" variant="h6">
+                        <Typography 
+                            sx={{textDecoration: 'underline'}} 
+                            display="inline" 
+                            variant="h6">
+                            Date de dernière modification:</Typography>  {props.lastModificationDate}
+                    </Typography>
+                    <Typography component="div" variant="h6">
+                        <Typography 
+                            sx={{textDecoration: 'underline'}} 
+                            display="inline" 
+                            variant="h6">
+                            Poids:</Typography>  {props.weight} Mo
                     </Typography>
                     </CardContent>
-                    <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-                        <Typography variant="subtitle1" color="text.secondary" component="div">
-                            tot
-                        </Typography>
-                    </Box>
                 </Box>
                 <CardMedia
                     component="img"
                     sx={{ width: 151 }}
-                    image="/static/images/cards/live-from-space.jpg"
-                    alt="Live from space album cover"
+                    src={props.url}
                 />
                 </Card>
         </Modal>

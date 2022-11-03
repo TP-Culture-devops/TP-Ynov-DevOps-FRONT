@@ -34,7 +34,13 @@ function App() {
             image="source"
           />
           <CardActions>
-            <ShowDocumentDetail />
+            <ShowDocumentDetail
+              name="Une image de bébé" 
+              creationDate="03/11/2022"
+              lastModificationDate="03/11/2022"
+              weight="52"
+              url="https://picsum.photos/200/300"
+            />
           </CardActions>
         </Card>
       );
