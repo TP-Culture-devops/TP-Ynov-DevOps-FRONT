@@ -1,6 +1,7 @@
 import './App.css';
 import AddDocumentButton from './AddDocumentButton';
 import ShowDocumentDetail from './ShowDocumentDetail';
+import HttpRequestGetFiles from './HttpRequest';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -10,6 +11,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
+import * as React from 'react';
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -20,17 +23,23 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function App() {
-  const Medias = ["Item 1", "Item 2", "Item 3", "Item 4" ];
-  const MediaList = Medias.map((Media) => 
+  HttpRequestGetFiles().then( (data) => {
+    console.log(data)
+    setMedias(data)
+  })
+  //  const Medias = ["Item 1", "Item 2", "Item 3", "Item 4" ];
+
+  const [medias, setMedias] = React.useState([]);
+  const MediaList = medias.map((Media) => 
         <Card sx={{ maxWidth: 500, display: 'flex' }}>
           <CardContent sx={{ flex: '1 0 auto', display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            <Item>{Media}</Item>
+            <Item>{Media.description}</Item>
           </CardContent> 
           <CardActions>
             <ShowDocumentDetail
-              name="Une image " 
-              creationDate="03/11/2022"
-              lastModificationDate="03/11/2022"
+              name={Media.description} 
+              creationDate={Media.creationDate}
+              lastModificationDate={Media.creationDate}
               weight="52"
               url="https://picsum.photos/200/300"
             />
