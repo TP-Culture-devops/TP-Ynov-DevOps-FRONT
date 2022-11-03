@@ -24,66 +24,81 @@ const item = {
 };
 
 export default function BasicModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
-  const [name, setName] = React.useState('');  
-  function handleChange (event: React.ChangeEvent<HTMLInputElement>) {
-    setName(event.target.value);
-  };
+    const [name, setName] = React.useState('');  
+    function handleChange (event: React.ChangeEvent<HTMLInputElement>) {
+        setName(event.target.value);
+    };
 
-  const ref = useRef();
-  const [file, setFile] = React.useState('');
-  function selectFile() {
-    ref.current.click()
-}
+    const ref = useRef();
+    const [file, setFile] = React.useState('');
+    function selectFile() {
+        ref.current.click()
+    }
+    function handleFileSelected(e: React.ChangeEvent<HTMLInputElement>)  {
+        const files = Array.from(e.target.files)
+        console.log("files:", files)
+        if(files[0] != undefined)
+            setFile(files[0])
+    }
 
-  function createDocument()  {
-    console.log("Name: ", name);
-    console.log("File: ", file);
-    setOpen(false);
-  }
+    function createDocument()  {
+        console.log("Name: ", name);
+        console.log("File: ", file);
+        setOpen(false);
+    }
 
 
   return (
     <div>
-      <Button onClick={handleOpen}>Create document</Button>
-      <Modal
+        <Button onClick={handleOpen}>Create document</Button>
+        <Modal
         open={open}
         onClose={handleClose}
-      >
-        <Box sx={style}>
-          <Typography sx={item} id="modal-modal-name"  >
-            Name: 
-          </Typography>
-          <TextField 
-            sx={item} 
-            id="standard-basic" 
-            label="Standard" 
-            variant="standard"
-            value={name}
-            onChange={handleChange} />
-          <Typography 
-            sx={item} 
-            id="modal-modal-select-file" >
-            Select your file
-          </Typography>
-          <Button 
-            sx={item} 
-            onClick={selectFile}
-            >
-            Select file
-            </Button>
-            <input ref={ref} type="file" accept=".jpg,.jpeg,.png" style={{ display: 'none' }} />
-          <Button 
-            sx={item} 
-            onClick={createDocument}
-            >
-            Create document
-            </Button>
-        </Box>
-      </Modal>
+        >
+            <Box sx={style}>
+                <Typography 
+                    sx={item}   
+                    id="modal-modal-name"  >
+                    Name: 
+                </Typography>
+                
+                <TextField 
+                    sx={item} 
+                    id="standard-basic" 
+                    label="Standard" 
+                    variant="standard"
+                    value={name}
+                    onChange={handleChange} />
+
+                <Typography 
+                    sx={item} 
+                    id="modal-modal-select-file" >
+                    Select your file
+                </Typography>
+
+                <Button 
+                    sx={item} 
+                    onClick={selectFile}>
+                    Select file
+                </Button>
+                <input 
+                    ref={ref} 
+                    type="file"
+                    onChange={handleFileSelected}
+                    accept=".jpg,.jpeg,.png" 
+                    style={{ display: 'none' }} />
+
+                <Button 
+                    sx={item} 
+                    onClick={createDocument}>
+                    Create document
+                </Button>
+            </Box>
+        </Modal>
     </div>
   );
 }
