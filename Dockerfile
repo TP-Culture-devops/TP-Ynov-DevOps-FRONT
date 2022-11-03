@@ -1,4 +1,4 @@
-FROM node:16-alpine 
+FROM node:18
 # Set the working directory to /app inside the container
 WORKDIR /app
 # Copy app files
