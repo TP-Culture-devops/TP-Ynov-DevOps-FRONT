@@ -1,5 +1,6 @@
 import './App.css';
 import AddDocumentButton from './AddDocumentButton';
+import ShowDocumentDetail from './ShowDocumentDetail';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -33,7 +34,7 @@ function App() {
             image="source"
           />
           <CardActions>
-            <Button size="small" variant="outlined">Consulter</Button>
+            <ShowDocumentDetail />
           </CardActions>
         </Card>
       );
