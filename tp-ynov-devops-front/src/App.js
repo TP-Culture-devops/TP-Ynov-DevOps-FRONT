@@ -1,4 +1,5 @@
 import './App.css';
+import AddDocumentButton from './AddDocumentButton';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -42,7 +43,7 @@ function App() {
       <Box sx={{ width: '100%', display: 'flex' }}>
         <Drawer sx={{width: 280, flexShrink: 0}} variant="permanent" anchor="left">
           <Stack spacing={2} padding={2}>
-            <Button variant="outlined">Ajouter</Button>
+            <AddDocumentButton/>
             <Button variant="outlined">Supprimer</Button>
           </Stack>
         </Drawer>

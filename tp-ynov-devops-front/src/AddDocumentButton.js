@@ -54,7 +54,7 @@ export default function BasicModal() {
 
   return (
     <div>
-        <Button onClick={handleOpen}>Create document</Button>
+        <Button variant="outlined" onClick={handleOpen}>Ajouter</Button>
         <Modal
         open={open}
         onClose={handleClose}
@@ -63,7 +63,7 @@ export default function BasicModal() {
                 <Typography 
                     sx={item}   
                     id="modal-modal-name"  >
-                    Name: 
+                    Nom du document: 
                 </Typography>
                 
                 <TextField 
