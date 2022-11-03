@@ -29,7 +29,7 @@ function App() {
           </CardContent> 
           <CardActions>
             <ShowDocumentDetail
-              name="Une image de bébé" 
+              name="Une image " 
               creationDate="03/11/2022"
               lastModificationDate="03/11/2022"
               weight="52"
